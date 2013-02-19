@@ -17,7 +17,6 @@
 #define GEAR_PISTON 2
 #define SHOOTER_PISTON 3
 #define VISION_LIGHTS 4
-#define FAN_LIGHTS 5
 
 //Digital Sidecar
 #define TOP_LIMIT 10
@@ -49,7 +48,6 @@ public:
 	static DigitalInput* topLimit;
 	static DigitalInput* bottomLimit;
 	static Solenoid* ringLED;
-	static Solenoid* fanLights;
 	
 	static void init();
 };

@@ -2,7 +2,7 @@
 #include "Commands/GearUp.h"
 #include "Commands/GearDown.h"
 #include "Commands/PushFrisbee.h"
-#include "Commands/ShootFrisbee.h"
+#include "Commands/SpinUpShooter.h"
 #include "Commands/ChickenRelease.h"
 #include "Commands/AimUp.h"
 #include "Commands/AimDown.h"
@@ -38,7 +38,7 @@ OI::OI()
 		 * visionOnOff toggles the vision system
 		 */
 	shoot = new JoystickButton(m_xbox->m_joy, XBOX_RB);
-	shoot->WhileHeld(new spinUpShooter());
+	shoot->WhileHeld(new SpinUpShooter());
 	
 	push = new JoystickButton(m_xbox->m_joy, XBOX_A);
 	push->WhileHeld(new PushFrisbee());
@@ -62,7 +62,7 @@ OI::OI()
 	guitarPush->WhileHeld(new PushFrisbee());
 	
 	guitarShoot = new JoystickButton(m_guitar->m_joy, GUITAR_START);
-	guitarShoot->WhileHeld(new spinUpShooter());
+	guitarShoot->WhileHeld(new SpinUpShooter());
 	
 	guitarChicken = new JoystickButton(m_guitar->m_joy, GUITAR_BACK);
 	guitarChicken->WhileHeld(new ChickenRelease());

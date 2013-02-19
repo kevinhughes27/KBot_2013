@@ -1,12 +1,12 @@
-#ifndef SHOOTFRISBEE_H
-#define SHOOTFRISBEE_H
+#ifndef SPINUPSHOOTER_H
+#define SPINUPSHOOTER_H
 
 #include "../CommandBase.h"
 
-class spinUpShooter: public Command 
+class SpinUpShooter: public Command 
 {
 public:
-	spinUpShooter();
+	SpinUpShooter();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

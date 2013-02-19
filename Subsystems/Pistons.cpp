@@ -4,7 +4,7 @@
 Pistons::Pistons() : Subsystem("Pistons") 
 {
 	gearPiston = RobotMap::gearPiston;
-	chickenRelease = RobotMap::chickenLittle;
+	chickenLittle = RobotMap::chickenLittle;
 	previousChicken = false;
 }
     

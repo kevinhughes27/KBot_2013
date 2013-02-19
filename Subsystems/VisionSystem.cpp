@@ -7,11 +7,8 @@ VisionSystem::VisionSystem() : Subsystem("VisionSystem")
 {
 	toggleCamera = CommandBase::oi->runVision;
 	ringLED = RobotMap::ringLED;
-	fan = RobotMap::fanLights;
 	
-	toggleLights = RobotMap::ringLED->Get();
-	fanLights = RobotMap::fanLights->Get();
-	
+	toggleRingLED = RobotMap::ringLED->Get();
 }
     
 void VisionSystem::InitDefaultCommand() {}
@@ -20,18 +17,6 @@ void VisionSystem::onOff()
 {
 	toggleCamera = SmartDashboard::GetBoolean("runVision");
 	SmartDashboard::PutBoolean("runVision", !toggleCamera);
-	toggleLights = !toggleLights;
-	lights->Set(toggleLights);
+	toggleRingLED = !toggleRingLED;
+	ringLED->Set(toggleRingLED);
 }
-
-/*void VisionSystem::isAimed()
-{
-	if(toggleLights)
-	{
-		if(SmartDashboard:)
-	}
-	
-	//fanLights = !fanLights;
-	//fan->Set(fanLights);
-	
-}*/

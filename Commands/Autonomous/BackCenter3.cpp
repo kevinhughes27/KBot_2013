@@ -11,7 +11,7 @@ BackCenter3::BackCenter3()
 void BackCenter3::Initialize() 
 {
 	CommandBase::aimer->aim(0.0);
-	CommandBase::shooter->shootFrisbee(0.0);
+	CommandBase::shooter->spinUpShooter(0.0);
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -32,7 +32,7 @@ bool BackCenter3::IsFinished()
 void BackCenter3::End() 
 {
 	CommandBase::aimer->aim(0.0);
-	CommandBase::shooter->shootFrisbee(0.0);
+	CommandBase::shooter->spinUpShooter(0.0);
 }
 
 // Called when another command which requires one or more of the same
@@ -40,5 +40,5 @@ void BackCenter3::End()
 void BackCenter3::Interrupted() 
 {
 	CommandBase::aimer->aim(0.0);
-	CommandBase::shooter->shootFrisbee(0.0);
+	CommandBase::shooter->spinUpShooter(0.0);
 }

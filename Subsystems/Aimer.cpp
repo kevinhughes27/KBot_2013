@@ -29,7 +29,7 @@ void Aimer::InitDefaultCommand()
 	SetDefaultCommand(new Aiming());
 }
 
-void Aimer::Aimer(float aimDirection)
+void Aimer::aimPID(float aimDirection)
 {
 	if(aimDirection > OPERATOR_DEADBAND)
 	{
@@ -47,12 +47,12 @@ void Aimer::Aimer(float aimDirection)
 
 void Aimer::aimUpPID()
 {
-	SetSetpointRelative(STEP_DISTANCE);
+	SetSetpointRelative(PID_STEP);
 }
 
 void Aimer::aimDownPID()
 {
-	SetSetpointRelative(-STEP_DISTANCE);
+	SetSetpointRelative(-PID_STEP);
 }
 
 void Aimer::aim(float joystickInput)
@@ -66,14 +66,14 @@ void Aimer::aim(float joystickInput)
 	}
 	else if(atBottom())
 	{
-		//printf("bottom switch pressed\n");
+		printf("bottom switch pressed\n");
 		if(joystickInput > 0.0)
 			joystickInput = 0.0;
 		motor->Set(joystickInput * AIM_SPEED);
 	}
 	else if(atTop())
 	{
-		//printf("top switch pressed\n");
+		printf("top switch pressed\n");
 		if(joystickInput < 0.0)
 			joystickInput = 0.0;
 		motor->Set(joystickInput * AIM_SPEED);

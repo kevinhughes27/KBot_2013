@@ -10,7 +10,7 @@ CommandBase::CommandBase() : Command()
 Drive* CommandBase::drive = NULL;
 Pistons* CommandBase::pistons = NULL;
 Shooter* CommandBase::shooter = NULL;
-AimPID* CommandBase::aimer = NULL;
+Aimer* CommandBase::aimer = NULL;
 VisionSystem* CommandBase::vision = NULL;
 OI* CommandBase::oi = NULL;
 

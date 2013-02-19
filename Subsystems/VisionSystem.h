@@ -8,15 +8,12 @@ class VisionSystem: public Subsystem
 {
 private:
 	Solenoid* ringLED;
-	Solenoid* fan;
 	bool toggleCamera;
 	bool toggleRingLED;
-	bool fanLights;
 public:
 	VisionSystem();
 	void InitDefaultCommand();
 	void onOff();
-	void isAimed();
 };
 
 #endif

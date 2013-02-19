@@ -10,7 +10,6 @@ Solenoid* RobotMap::shooterPiston = NULL;
 Solenoid* RobotMap::gearPiston = NULL;
 Solenoid* RobotMap::chickenLittle = NULL;
 Solenoid* RobotMap::ringLED = NULL;
-Solenoid* RobotMap::fanLights = NULL;
 Compressor* RobotMap::compressor = NULL;
 AnalogChannel* RobotMap::aimPot = NULL;
 DigitalInput* RobotMap::bottomLimit = NULL;
@@ -25,16 +24,14 @@ void RobotMap::init()
 	//Start pistons
 	gearPiston = new Solenoid(GEAR_PISTON);
 	gearPiston->Set(true);
-	chicken_little = new Solenoid(CHICKEN_RELEASE);
-	chicken_little->Set(false);
+	chickenLittle = new Solenoid(CHICKEN_RELEASE);
+	chickenLittle->Set(false);
 	shooterPiston = new Solenoid(SHOOTER_PISTON);
 	shooterPiston->Set(false);
 	
 	//Starting Vision Lights
 	ringLED = new Solenoid(VISION_LIGHTS);
 	ringLED->Set(false);
-	fanLights = new Solenoid(FAN_LIGHTS);
-	fanLights->Set(true); //true is on, false is offb
 	
 	//Initializing motors
 	leftMotor = new Talon(LEFT_MOTOR);
