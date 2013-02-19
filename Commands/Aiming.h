@@ -3,12 +3,10 @@
 
 #include "../CommandBase.h"
 
-/**
- *
- *
- * @author KBotics
- */
-class Aiming: public CommandBase {
+#include "math.h"
+
+class Aiming: public CommandBase 
+{
 public:
 	Aiming();
 	virtual void Initialize();

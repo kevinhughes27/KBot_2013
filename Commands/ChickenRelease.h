@@ -3,12 +3,8 @@
 
 #include "../CommandBase.h"
 
-/**
- *
- *
- * @author KBotics
- */
-class ChickenRelease: public Command {
+class ChickenRelease: public Command 
+{
 public:
 	ChickenRelease();
 	virtual void Initialize();

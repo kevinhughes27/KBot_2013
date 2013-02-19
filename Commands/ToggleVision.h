@@ -3,12 +3,8 @@
 
 #include "../CommandBase.h"
 
-/**
- *
- *
- * @author KBotics
- */
-class ToggleVision: public CommandBase {
+class ToggleVision: public CommandBase 
+{
 public:
 	ToggleVision();
 	virtual void Initialize();

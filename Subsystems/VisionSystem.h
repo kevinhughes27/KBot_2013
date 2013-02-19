@@ -1,20 +1,17 @@
 #ifndef VISIONSYSTEM_H
 #define VISIONSYSTEM_H
-#include "Commands/Subsystem.h"
-#include "WPILib.h"
 
-/**
- *
- *
- * @author KBotics
- */
-class VisionSystem: public Subsystem {
+#include "WPILib.h"
+#include "Commands/Subsystem.h"
+
+class VisionSystem: public Subsystem 
+{
 private:
-	bool toggleCamera;
-	bool toggleLights;
-	bool fanLights;
-	Solenoid* lights;
+	Solenoid* ringLED;
 	Solenoid* fan;
+	bool toggleCamera;
+	bool toggleRingLED;
+	bool fanLights;
 public:
 	VisionSystem();
 	void InitDefaultCommand();

@@ -1,40 +1,43 @@
-#include "AimPID.h"
+#include "Aimer.h"
 #include "../Robotmap.h"
-#include "SmartDashboard/SmartDashboard.h"
 #include "../Commands/Aiming.h"
 
-
-AimPID::AimPID() : PIDSubsystem("AimPID", Kp, Ki, Kd) {
+Aimer::Aimer() : PIDSubsystem("Aimer", Kp, Ki, Kd) 
+{
 	motor = RobotMap::aimingMotor;
 	pot = RobotMap::aimPot;
 	topLimit = RobotMap::topLimit;
 	bottomLimit = RobotMap::bottomLimit;
 	
-	//SetSetpoint(BOTTOM);
+	//SetSetpoint(P0T_TOP);
+	// limit output ...PID_STEP
 	//Enable();
 }
 
-double AimPID::ReturnPIDInput() {
+double Aimer::ReturnPIDInput() 
+{
 	return pot->GetVoltage();
 }
 
-void AimPID::UsePIDOutput(double output) {
+void Aimer::UsePIDOutput(double output) 
+{
 	motor->Set(output);
 }
 
-void AimPID::InitDefaultCommand() {
+void Aimer::InitDefaultCommand() 
+{
 	SetDefaultCommand(new Aiming());
 }
 
-void AimPID::aimPID(float aimDirection)
+void Aimer::Aimer(float aimDirection)
 {
 	if(aimDirection > OPERATOR_DEADBAND)
 	{
-		SetSetpointRelative(-STEP_DISTANCE);
+		SetSetpointRelative(-PID_STEP);
 	}
 	else if(aimDirection < OPERATOR_DEADBAND)
 	{
-		SetSetpointRelative(STEP_DISTANCE);
+		SetSetpointRelative(PID_STEP);
 	}
 	else
 	{
@@ -42,17 +45,17 @@ void AimPID::aimPID(float aimDirection)
 	}
 }
 
-void AimPID::aimUpPID()
+void Aimer::aimUpPID()
 {
 	SetSetpointRelative(STEP_DISTANCE);
 }
 
-void AimPID::aimDownPID()
+void Aimer::aimDownPID()
 {
 	SetSetpointRelative(-STEP_DISTANCE);
 }
 
-void AimPID::aim(float joystickInput)
+void Aimer::aim(float joystickInput)
 {
 	SmartDashboard::PutNumber("Pot", pot->GetVoltage());
 	joystickInput *= -1;
@@ -81,27 +84,27 @@ void AimPID::aim(float joystickInput)
 	}
 }
 
-void AimPID::aimUp()
+void Aimer::aimUp()
 {
 	motor->Set(AIM_SPEED);
 }
 
-void AimPID::aimDown()
+void Aimer::aimDown()
 {
 	motor->Set(-AIM_SPEED);
 }
 
-bool AimPID::atBottom()
+bool Aimer::atBottom()
 {
 	return (bottomLimit->Get() == LIMIT_SWITCH_ON);
 }
 
-bool AimPID::atTop()
+bool Aimer::atTop()
 {
 	return (topLimit->Get() == LIMIT_SWITCH_ON);
 }
 
-void AimPID::moveFromLimit()
+void Aimer::moveFromLimit()
 {
 	if(atBottom())
 	{
@@ -113,7 +116,7 @@ void AimPID::moveFromLimit()
 	}
 }
 
-void AimPID::autonomousAim(float setpoint)
+void Aimer::autonomousAim(float setpoint)
 {
 	float potVal = 0.0;
 	
@@ -121,7 +124,7 @@ void AimPID::autonomousAim(float setpoint)
 	{
 		potVal = pot->GetVoltage();
 		printf("potVal: %f\n", potVal);
-		motor->Set(0.10);
+		motor->Set(AUTON_SPEED);
 	}
 	
 	motor->Set(0);

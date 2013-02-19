@@ -3,12 +3,8 @@
 
 #include "../CommandBase.h"
 
-/**
- *
- *
- * @author KBotics
- */
-class DriveCmd: public CommandBase {
+class DriveCmd: public CommandBase 
+{
 public:
 	DriveCmd();
 	virtual void Initialize();

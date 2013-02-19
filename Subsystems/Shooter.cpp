@@ -1,6 +1,5 @@
 #include "Shooter.h"
 #include "../Robotmap.h"
-#include "math.h"
 
 Shooter::Shooter() : Subsystem("Shooter") 
 {
@@ -18,7 +17,7 @@ void Shooter::pushFrisbee(bool pistonSetting)
 	piston->Set(pistonSetting);
 }
 
-void Shooter::shootFrisbee(float motorSpeed)
+void Shooter::spinUpShooter(float motorSpeed)
 {
 	shooterFront->Set(FRONT_CONSTANT * motorSpeed);
 	shooterBack->Set(BACK_CONSTANT * motorSpeed);
@@ -26,9 +25,9 @@ void Shooter::shootFrisbee(float motorSpeed)
 
 void Shooter::autonomousShoot()
 {
-	shooterFront->Set(FRONT_CONSTANT);
-	shooterBack->Set(BACK_CONSTANT);
+	spinUpShooter(1.0);
 	Wait(2.5);
+	// shoot
 	piston->Set(true);
 	Wait(0.5);
 	piston->Set(false);
@@ -36,9 +35,9 @@ void Shooter::autonomousShoot()
 
 void Shooter::autonomousShoot3()
 {
-	shooterFront->Set(FRONT_CONSTANT);
-	shooterBack->Set(BACK_CONSTANT);
+	spinUpShooter(1.0);
 	Wait(3);
+	// shoot
 	piston->Set(true);
 	Wait(0.5);
 	piston->Set(false);
@@ -46,10 +45,10 @@ void Shooter::autonomousShoot3()
 	for(int i = 0; i < 2; i++)
 	{
 		Wait(2);
+		// shoot
 		piston->Set(true);
 		Wait(0.5);
 		piston->Set(false);
 	}
 	Wait(2);
 }
-

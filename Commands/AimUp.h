@@ -3,12 +3,8 @@
 
 #include "../CommandBase.h"
 
-/**
- *
- *
- * @author KBotics
- */
-class AimUp: public CommandBase {
+class AimUp: public CommandBase 
+{
 public:
 	AimUp();
 	virtual void Initialize();

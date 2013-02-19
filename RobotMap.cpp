@@ -1,6 +1,5 @@
 #include "RobotMap.h"
 
-//All objects to NULL to remove any errors
 SpeedController* RobotMap::leftMotor = NULL;
 SpeedController* RobotMap::rightMotor = NULL;
 SpeedController* RobotMap::shooterFront = NULL;
@@ -9,8 +8,8 @@ SpeedController* RobotMap::aimingMotor = NULL;
 RobotDrive* RobotMap::robotDrive = NULL;
 Solenoid* RobotMap::shooterPiston = NULL;
 Solenoid* RobotMap::gearPiston = NULL;
-Solenoid* RobotMap::chicken_little = NULL;
-Solenoid* RobotMap::visionLights = NULL;
+Solenoid* RobotMap::chickenLittle = NULL;
+Solenoid* RobotMap::ringLED = NULL;
 Solenoid* RobotMap::fanLights = NULL;
 Compressor* RobotMap::compressor = NULL;
 AnalogChannel* RobotMap::aimPot = NULL;
@@ -32,8 +31,8 @@ void RobotMap::init()
 	shooterPiston->Set(false);
 	
 	//Starting Vision Lights
-	visionLights = new Solenoid(VISION_LIGHTS);
-	visionLights->Set(false);
+	ringLED = new Solenoid(VISION_LIGHTS);
+	ringLED->Set(false);
 	fanLights = new Solenoid(FAN_LIGHTS);
 	fanLights->Set(true); //true is on, false is offb
 	

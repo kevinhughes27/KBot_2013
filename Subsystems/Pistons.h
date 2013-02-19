@@ -1,12 +1,14 @@
 #ifndef PISTONS_H
 #define PISTONS_H
-#include "Commands/Subsystem.h"
-#include "WPILib.h"
 
-class Pistons: public Subsystem {
+#include "WPILib.h"
+#include "Commands/Subsystem.h"
+
+class Pistons: public Subsystem 
+{
 private:
 	Solenoid* gearPiston;
-	Solenoid* chickenRelease;
+	Solenoid* chickenLittle;
 	bool previousChicken;
 
 public:

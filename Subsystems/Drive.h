@@ -1,15 +1,15 @@
 #ifndef DRIVE_H
 #define DRIVE_H
-#include "Commands/Subsystem.h"
+
 #include "WPILib.h"
+#include "Commands/Subsystem.h"
+
+#include "math.h"
+
 #define DRIVER_DEADBAND 0.10
 
-/**
- *
- *
- * @author KBotics
- */
-class Drive: public Subsystem {
+class Drive: public Subsystem 
+{
 private:
 	SpeedController* leftMotor;
 	SpeedController* rightMotor;

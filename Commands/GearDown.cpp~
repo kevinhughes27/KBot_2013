@@ -1,34 +1,30 @@
-#include "ShootFrisbee.h"
+#include "GearDown.h"
 
-ShootFrisbee::ShootFrisbee() 
-{
-	//Requires(CommandBase::shooter);
+GearDown::GearDown() {
+	Requires(CommandBase::pistons);
 }
 
 // Called just before this Command runs the first time
-void ShootFrisbee::Initialize() 
+void GearDown::Initialize() 
 {}
 
 // Called repeatedly when this Command is scheduled to run
-void ShootFrisbee::Execute() 
+void GearDown::Execute() 
 {
-	CommandBase::shooter->shootFrisbee(1.0);
+	CommandBase::pistons->gearChange(false);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool ShootFrisbee::IsFinished() {
+bool GearDown::IsFinished() 
+{
 	return false;
 }
 
 // Called once after isFinished returns true
-void ShootFrisbee::End() 
-{
-
-}
+void GearDown::End() 
+{}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void ShootFrisbee::Interrupted() 
-{
-	CommandBase::shooter->shootFrisbee(0.0);
-}
+void GearDown::Interrupted() 
+{}

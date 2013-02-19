@@ -1,16 +1,15 @@
 #ifndef SHOOTER_H
 #define SHOOTER_H
-#include "Commands/Subsystem.h"
+
 #include "WPILib.h"
+#include "Commands/Subsystem.h"
+
+#include "math.h"
 
 #define DEADBAND 0.10
 #define BACK_CONSTANT 1.0
 #define FRONT_CONSTANT 1.0
-/**
- *
- *
- * @author KBotics
- */
+
 class Shooter: public Subsystem 
 {
 private:
@@ -22,7 +21,7 @@ public:
 	Shooter();
 	void InitDefaultCommand();
 	void pushFrisbee(bool);
-	void shootFrisbee(float);
+	void spinUpShooter(float);
 	void autonomousShoot();
 	void autonomousShoot3();
 };

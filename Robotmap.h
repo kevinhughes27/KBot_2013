@@ -1,5 +1,6 @@
 #ifndef ROBOTMAP_H
 #define ROBOTMAP_H
+
 #include "WPILib.h"
 
 //Motor Defines
@@ -18,14 +19,15 @@
 #define VISION_LIGHTS 4
 #define FAN_LIGHTS 5
 
-//Digital I/O
-#define POTENTIOMETER 1
+//Digital Sidecar
 #define TOP_LIMIT 10
 #define BOTTOM_LIMIT 12
 
+//Analog Breakout
+#define POTENTIOMETER 1
+
 class RobotMap
 {
-private:
 public:
 
 	//Defining Driver objects
@@ -40,13 +42,13 @@ public:
 	static SpeedController* aimingMotor;
 	static AnalogChannel* aimPot;
 	static Solenoid* shooterPiston;
-	static Solenoid* chicken_little;
+	static Solenoid* chickenLittle;
 	
 	//Defining Other objects
 	static Compressor* compressor;
 	static DigitalInput* topLimit;
 	static DigitalInput* bottomLimit;
-	static Solenoid* visionLights;
+	static Solenoid* ringLED;
 	static Solenoid* fanLights;
 	
 	static void init();

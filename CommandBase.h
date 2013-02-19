@@ -5,7 +5,7 @@
 #include "Subsystems/Drive.h"
 #include "Subsystems/Pistons.h"
 #include "Subsystems/Shooter.h"
-#include "Subsystems/AimPID.h"
+#include "Subsystems/Aimer.h"
 #include "Subsystems/VisionSystem.h"
 #include "OI.h"
 
@@ -15,16 +15,18 @@
  * CommandBase stores creates and stores each control system. To access a
  * subsystem elsewhere in your code in your code use CommandBase.examplesubsystem
  */
-class CommandBase: public Command {
+class CommandBase: public Command 
+{
 public:
 	CommandBase(const char *name);
 	CommandBase();
 	static void init();
-	// Create a single static instance of all of your subsystems
+	
+	// single static instance of all subsystems
 	static Drive* drive;
 	static Pistons* pistons;
 	static Shooter* shooter;
-	static AimPID* aimPID;
+	static Aimer* aimer;
 	static VisionSystem* vision;
 	static OI *oi;
 };

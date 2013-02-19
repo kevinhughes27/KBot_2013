@@ -3,12 +3,8 @@
 
 #include "../CommandBase.h"
 
-/**
- *
- *
- * @author KBotics
- */
-class GearDown: public Command {
+class GearDown: public Command 
+{
 public:
 	GearDown();
 	virtual void Initialize();

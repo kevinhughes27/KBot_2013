@@ -3,12 +3,8 @@
 
 #include "../CommandBase.h"
 
-/**
- *
- *
- * @author KBotics
- */
-class PushFrisbee: public Command {
+class PushFrisbee: public Command 
+{
 public:
 	PushFrisbee();
 	virtual void Initialize();

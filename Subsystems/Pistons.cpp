@@ -4,7 +4,7 @@
 Pistons::Pistons() : Subsystem("Pistons") 
 {
 	gearPiston = RobotMap::gearPiston;
-	chickenRelease = RobotMap::chicken_little;
+	chickenRelease = RobotMap::chickenLittle;
 	previousChicken = false;
 }
     
@@ -19,5 +19,5 @@ void Pistons::gearChange(bool change)
 void Pistons::toggleChicken()
 {
 	previousChicken = !previousChicken;
-	chickenRelease->Set(previousChicken);
+	chickenLittle->Set(previousChicken);
 }
