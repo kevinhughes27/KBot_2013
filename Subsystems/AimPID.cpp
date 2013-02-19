@@ -10,7 +10,7 @@ AimPID::AimPID() : PIDSubsystem("AimPID", Kp, Ki, Kd) {
 	topLimit = RobotMap::topLimit;
 	bottomLimit = RobotMap::bottomLimit;
 	
-	//SetSetpoint(0.0);
+	//SetSetpoint(BOTTOM);
 	//Enable();
 }
 
@@ -28,11 +28,11 @@ void AimPID::InitDefaultCommand() {
 
 void AimPID::aimPID(float aimDirection)
 {
-	if(aimDirection > DEADBAND)
+	if(aimDirection > OPERATOR_DEADBAND)
 	{
 		SetSetpointRelative(-STEP_DISTANCE);
 	}
-	else if(aimDirection < DEADBAND)
+	else if(aimDirection < OPERATOR_DEADBAND)
 	{
 		SetSetpointRelative(STEP_DISTANCE);
 	}
@@ -54,10 +54,10 @@ void AimPID::aimDownPID()
 
 void AimPID::aim(float joystickInput)
 {
+	SmartDashboard::PutNumber("Pot", pot->GetVoltage());
 	joystickInput *= -1;
-	printf("Pot: %f\n", pot->GetVoltage());
-	
-	if(fabs(joystickInput) > DEADBAND && !(atBottom() || atTop()))
+
+	if(fabs(joystickInput) > OPERATOR_DEADBAND && !(atBottom() || atTop()))
 	{
 		motor->Set(joystickInput * AIM_SPEED);
 	}
@@ -74,6 +74,10 @@ void AimPID::aim(float joystickInput)
 		if(joystickInput < 0.0)
 			joystickInput = 0.0;
 		motor->Set(joystickInput * AIM_SPEED);
+	}
+	else
+	{
+		motor->Set(0.0);
 	}
 }
 
@@ -107,4 +111,18 @@ void AimPID::moveFromLimit()
 	{
 		aimDown();
 	}
+}
+
+void AimPID::autonomousAim(float setpoint)
+{
+	float potVal = 0.0;
+	
+	while(potVal <= setpoint)
+	{
+		potVal = pot->GetVoltage();
+		printf("potVal: %f\n", potVal);
+		motor->Set(0.10);
+	}
+	
+	motor->Set(0);
 }

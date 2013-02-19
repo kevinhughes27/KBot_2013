@@ -4,14 +4,28 @@
 
 VisionSystem::VisionSystem() : Subsystem("VisionSystem") {
 	toggleCamera = CommandBase::oi->runVision;
-	toggleLights = RobotMap::visionLights;
-	toggleLights->Set(toggleLights->Get());
+	toggleLights = RobotMap::visionLights->Get();
+	fanLights = RobotMap::fanLights->Get();
+	lights = RobotMap::visionLights;
+	fan = RobotMap::fanLights;
 }
     
 void VisionSystem::InitDefaultCommand() {}
 
 void VisionSystem::onOff()
 {
-	toggleLights->Set(!toggleLights->Get());
-	toggleCamera = !toggleCamera;
+	toggleCamera = SmartDashboard::GetBoolean("runVision");
+	SmartDashboard::PutBoolean("runVision", !toggleCamera);
+	toggleLights = !toggleLights;
+	lights->Set(toggleLights);
+	//fanLights = !fanLights;
+	//fan->Set(fanLights);
 }
+
+/*void VisionSystem::isAimed()
+{
+	if(toggleLights)
+	{
+		if(SmartDashboard:)
+	}
+}*/

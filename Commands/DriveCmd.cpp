@@ -10,9 +10,9 @@ void DriveCmd::Initialize()
 
 void DriveCmd::Execute() 
 {
-	float leftStick = CommandBase::oi->m_logitech->getjoyLeftY();
-	float rightStick = CommandBase::oi->m_logitech->getjoyRightY();
-	
+	float leftStick = CommandBase::oi->m_driver->getjoyLeftY();
+	float rightStick = CommandBase::oi->m_driver->getjoyRightY();
+		
 	CommandBase::drive->wesleyDrive(leftStick, rightStick);
 }
 

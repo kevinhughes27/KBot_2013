@@ -17,8 +17,8 @@ private:
 public:
 	OI();
 	bool runVision;
+	XboxController* m_driver;
 	XboxController* m_xbox;
-	XboxController* m_logitech;
 	GuitarController* m_guitar;
 	
 	//Operator Buttons

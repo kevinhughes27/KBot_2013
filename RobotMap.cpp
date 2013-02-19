@@ -11,6 +11,7 @@ Solenoid* RobotMap::shooterPiston = NULL;
 Solenoid* RobotMap::gearPiston = NULL;
 Solenoid* RobotMap::chicken_little = NULL;
 Solenoid* RobotMap::visionLights = NULL;
+Solenoid* RobotMap::fanLights = NULL;
 Compressor* RobotMap::compressor = NULL;
 AnalogChannel* RobotMap::aimPot = NULL;
 DigitalInput* RobotMap::bottomLimit = NULL;
@@ -32,7 +33,9 @@ void RobotMap::init()
 	
 	//Starting Vision Lights
 	visionLights = new Solenoid(VISION_LIGHTS);
-	visionLights->Set(true);
+	visionLights->Set(false);
+	fanLights = new Solenoid(FAN_LIGHTS);
+	fanLights->Set(true); //true is on, false is offb
 	
 	//Initializing motors
 	leftMotor = new Talon(LEFT_MOTOR);

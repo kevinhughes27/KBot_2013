@@ -6,9 +6,10 @@
 #include "math.h"
 
 #define STEP_DISTANCE 0.1
-#define AIM_SPEED 0.1
-#define DEADBAND 0.05
+#define AIM_SPEED 0.20
+#define OPERATOR_DEADBAND 0.100
 #define LIMIT_SWITCH_ON 1
+#define BOTTOM 0.2
 
 /**
  *
@@ -39,6 +40,7 @@ public:
 	bool atBottom();
 	bool atTop();
 	void moveFromLimit();
+	void autonomousAim(float);
 };
 
 #endif

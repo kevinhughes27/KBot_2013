@@ -16,6 +16,7 @@
 #define GEAR_PISTON 2
 #define SHOOTER_PISTON 3
 #define VISION_LIGHTS 4
+#define FAN_LIGHTS 5
 
 //Digital I/O
 #define POTENTIOMETER 1
@@ -46,6 +47,7 @@ public:
 	static DigitalInput* topLimit;
 	static DigitalInput* bottomLimit;
 	static Solenoid* visionLights;
+	static Solenoid* fanLights;
 	
 	static void init();
 };

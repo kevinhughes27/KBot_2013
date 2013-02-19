@@ -11,11 +11,15 @@
 class VisionSystem: public Subsystem {
 private:
 	bool toggleCamera;
-	Solenoid* toggleLights;
+	bool toggleLights;
+	bool fanLights;
+	Solenoid* lights;
+	Solenoid* fan;
 public:
 	VisionSystem();
 	void InitDefaultCommand();
 	void onOff();
+	void isAimed();
 };
 
 #endif

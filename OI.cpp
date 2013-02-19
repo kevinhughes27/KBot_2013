@@ -10,12 +10,12 @@
 
 OI::OI() 
 {
+	runVision = false;
 	//Attaching the runVision boolean to the smart dashboard key
-	runVision = true;
 	SmartDashboard::PutBoolean("runVision", runVision);
 	
 	//Creating Joysticks
-	m_logitech = new XboxController(DRIVER_PORT);
+	m_driver = new XboxController(DRIVER_PORT);
 	m_xbox = new XboxController(OPERATOR_PORT);
 	m_guitar = new GuitarController(GUITAR_PORT);
 	
@@ -23,10 +23,10 @@ OI::OI()
 		/* GearUp sets drive to High Gear
 		 * GearDown sets drive to Low Gear
 		 */
-	gearUp = new JoystickButton(m_logitech->m_joy, XBOX_RB);
+	gearUp = new JoystickButton(m_driver->m_joy, XBOX_RB);
 	gearUp->WhenPressed(new GearUp());
 	
-	gearDown = new JoystickButton(m_logitech->m_joy, XBOX_LB);
+	gearDown = new JoystickButton(m_driver->m_joy, XBOX_LB);
 	gearDown->WhenPressed(new GearDown());
 	
 	//Creating Xbox Buttons for Operator
@@ -44,7 +44,7 @@ OI::OI()
 	chickenRelease = new JoystickButton(m_xbox->m_joy, XBOX_LB);
 	chickenRelease->WhenPressed(new ChickenRelease());
 	
-	visionOnOff = new JoystickButton(m_xbox->m_joy, XBOX_X);
+	visionOnOff = new JoystickButton(m_xbox->m_joy, XBOX_B);
 	visionOnOff->WhenPressed(new ToggleVision());
 	
 	//Creating Guitar Buttons for Operator
@@ -64,10 +64,10 @@ OI::OI()
 	guitarChicken = new JoystickButton(m_guitar->m_joy, GUITAR_BACK);
 	guitarChicken->WhileHeld(new ChickenRelease());
 	
-	shooterUp = new JoystickButton(m_guitar->m_joy, GUITAR_ORANGE);
+	shooterUp = new JoystickButton(m_guitar->m_joy, GUITAR_YELLOW);
 	shooterUp->WhileHeld(new AimUp());
 	
-	shooterDown = new JoystickButton(m_guitar->m_joy, GUITAR_YELLOW);
+	shooterDown = new JoystickButton(m_guitar->m_joy, GUITAR_RED);
 	shooterDown->WhileHeld(new AimDown());
 	
 	guitarVision = new JoystickButton(m_guitar->m_joy, GUITAR_BLUE);

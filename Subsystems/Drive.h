@@ -2,7 +2,7 @@
 #define DRIVE_H
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
-#define DEADBAND 0.05
+#define DRIVER_DEADBAND 0.10
 
 /**
  *
