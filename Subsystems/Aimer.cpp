@@ -66,14 +66,14 @@ void Aimer::aim(float joystickInput)
 	}
 	else if(atBottom())
 	{
-		printf("bottom switch pressed\n");
+		//printf("bottom switch pressed\n");
 		if(joystickInput > 0.0)
 			joystickInput = 0.0;
 		motor->Set(joystickInput * AIM_SPEED);
 	}
 	else if(atTop())
 	{
-		printf("top switch pressed\n");
+		//printf("top switch pressed\n");
 		if(joystickInput < 0.0)
 			joystickInput = 0.0;
 		motor->Set(joystickInput * AIM_SPEED);

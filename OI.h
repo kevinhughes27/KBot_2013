@@ -2,9 +2,9 @@
 #define OI_H
 
 #include "WPILib.h"
-#include "../ControllerWrappers/LogitechController.hpp"
-#include "../ControllerWrappers/XboxController.hpp"
-#include "../ControllerWrappers/GuitarController.hpp"
+#include "ControllerWrappers/LogitechF310.hpp"
+#include "ControllerWrappers/XboxController.hpp"
+#include "ControllerWrappers/GuitarController.hpp"
 
 #define DRIVER_PORT 1
 #define OPERATOR_PORT 2
@@ -15,7 +15,7 @@ class OI
 public:
 	OI();
 	
-	XboxController* m_driver;
+	LogitechF310* m_driver;
 	XboxController* m_xbox;
 	GuitarController* m_guitar;
 	bool runVision;

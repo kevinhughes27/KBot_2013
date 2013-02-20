@@ -5,6 +5,7 @@
 #include "CommandBase.h"
 
 #include "Commands/Autonomous/BackCenter3.h"
+#include "Commands/Autonomous/BackCenter3_wDrive.h"
 
 class Kbot : public IterativeRobot 
 {
@@ -21,6 +22,7 @@ private:
 		lw = LiveWindow::GetInstance();
 		
 		autonomousCommand = new BackCenter3();
+		//autonomousCommand = new BackCenter3_wDrive();
 	}
 	
 	virtual void AutonomousInit() 

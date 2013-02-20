@@ -11,7 +11,7 @@
 OI::OI() 
 {	
 	//Creating Joysticks
-	m_driver = new XboxController(DRIVER_PORT);
+	m_driver = new LogitechF310(DRIVER_PORT);
 	m_xbox = new XboxController(OPERATOR_PORT);
 	m_guitar = new GuitarController(GUITAR_PORT);
 
