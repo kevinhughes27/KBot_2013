@@ -23,7 +23,7 @@ void BackCenter3_wDrive::Execute()
 	Wait(2);
 	CommandBase::drive->stop();
 	CommandBase::aimer->autonomousAim(0.88);
-	CommandBase::shooter->autonomousShoot3();
+	CommandBase::shooter->autonomousShoot3(3);
 	Wait(0.5);
 }
 

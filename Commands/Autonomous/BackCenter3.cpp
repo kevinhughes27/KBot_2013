@@ -18,7 +18,7 @@ void BackCenter3::Initialize()
 void BackCenter3::Execute() 
 {
 	CommandBase::aimer->autonomousAim(0.88);
-	CommandBase::shooter->autonomousShoot3();
+	CommandBase::shooter->autonomousShoot3(6);
 	Wait(0.5);
 }
 
