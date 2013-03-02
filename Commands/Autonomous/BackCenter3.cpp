@@ -17,8 +17,8 @@ void BackCenter3::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void BackCenter3::Execute() 
 {
-	CommandBase::aimer->autonomousAim(0.88);
-	CommandBase::shooter->autonomousShoot3(6);
+	CommandBase::aimer->autonomousAim(POT_VALUE);
+	CommandBase::shooter->autonomousShoot3(5);
 	Wait(0.5);
 }
 

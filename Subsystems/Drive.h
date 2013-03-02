@@ -22,6 +22,7 @@ public:
 	void stop();
 	void wesleyDrive(float, float);
 	void halfSpeed(bool);
+	void regularDrive(float, float);
 };
 
 #endif

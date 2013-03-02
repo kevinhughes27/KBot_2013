@@ -26,10 +26,10 @@ OI::OI()
 		 */
 	gearUp = new JoystickButton(m_driver->m_joy, XBOX_RB);
 	gearUp->WhenPressed(new GearUp());
-	
 	gearDown = new JoystickButton(m_driver->m_joy, XBOX_LB);
-	gearDown->WhenPressed(new GearDown());
-	
+	gearDown->WhenPressed(new GearDown());	
+	chickenRelease = new JoystickButton(m_driver->m_joy, XBOX_A);
+	chickenRelease->WhenPressed(new ChickenRelease());
 	
 	/** Creating Xbox Buttons for Operator **/
 		/* Shoot starts up the motors on the shooter
@@ -43,8 +43,8 @@ OI::OI()
 	push = new JoystickButton(m_xbox->m_joy, XBOX_A);
 	push->WhileHeld(new PushFrisbee());
 	
-	chickenRelease = new JoystickButton(m_xbox->m_joy, XBOX_LB);
-	chickenRelease->WhenPressed(new ChickenRelease());
+	/*chickenRelease = new JoystickButton(m_xbox->m_joy, XBOX_LB);
+	chickenRelease->WhenPressed(new ChickenRelease());*/
 	
 	visionOnOff = new JoystickButton(m_xbox->m_joy, XBOX_B);
 	visionOnOff->WhenPressed(new ToggleVision());

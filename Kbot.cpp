@@ -57,3 +57,10 @@ private:
 };
 
 START_ROBOT_CLASS(Kbot);
+
+/*
+ * In DriveCmd.cpp, changed Execute function to "CommandBase::drive->
+ * 	regularDrive(float, float);... It used to be wesleyDrive(float float).
+ * 	
+ * Also, added regularDrive to Drive subsystem.
+ */

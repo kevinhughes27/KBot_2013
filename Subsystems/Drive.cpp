@@ -60,3 +60,16 @@ void Drive::halfSpeed(bool speed)
 {
 	speedSet = speed;
 }
+
+void Drive::regularDrive(float leftStick, float rightStick)
+{
+	if(fabs(leftStick) < DEADBAND)
+	{
+		leftStick = 0.0;
+	}
+	if(fabs(rightStick) < DEADBAND)
+	{
+		rightStick = 0.0;
+	}
+	robotDrive->TankDrive(-leftStick, -rightStick, true);
+}

@@ -15,7 +15,8 @@ void DriveCmd::Execute()
 	float leftStick = CommandBase::oi->m_driver->getjoyLeftY();
 	float rightStick = CommandBase::oi->m_driver->getjoyRightY();
 		
-	CommandBase::drive->wesleyDrive(leftStick, rightStick);
+	//CommandBase::drive->wesleyDrive(leftStick, rightStick);
+	CommandBase::drive->regularDrive(leftStick, rightStick);
 }
 
 bool DriveCmd::IsFinished() 
