@@ -4,7 +4,7 @@ BackCenter3::BackCenter3()
 {
 	Requires(CommandBase::shooter);
 	Requires(CommandBase::aimer);
-	SetTimeout(15);
+	SetTimeout(14);
 }
 
 // Called just before this Command runs the first time
@@ -18,8 +18,7 @@ void BackCenter3::Initialize()
 void BackCenter3::Execute() 
 {
 	CommandBase::aimer->autonomousAim(POT_VALUE);
-	CommandBase::shooter->autonomousShoot3(5);
-	Wait(0.5);
+	CommandBase::shooter->autonomousShoot3(3);
 }
 
 // Make this return true when this Command no longer needs to run execute()

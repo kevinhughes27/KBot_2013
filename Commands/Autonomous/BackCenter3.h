@@ -2,7 +2,7 @@
 #define BACKCENTER3_H
 
 #include "../../CommandBase.h"
-#define POT_VALUE 0.77
+#define POT_VALUE 0.78
 
 class BackCenter3: public CommandBase 
 {

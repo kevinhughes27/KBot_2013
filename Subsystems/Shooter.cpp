@@ -26,7 +26,7 @@ void Shooter::spinUpShooter(float motorSpeed)
 void Shooter::autonomousShoot()
 {
 	spinUpShooter(1.0);
-	Wait(2.5);
+	Wait(3.0);
 	// shoot
 	piston->Set(true);
 	Wait(0.5);
@@ -36,7 +36,7 @@ void Shooter::autonomousShoot()
 void Shooter::autonomousShoot3(int loops)
 {
 	spinUpShooter(1.0);
-	Wait(3);
+	Wait(2.5);
 	// shoot
 	piston->Set(true);
 	Wait(0.5);
@@ -44,7 +44,7 @@ void Shooter::autonomousShoot3(int loops)
 
 	for(int i = 0; i < loops; i++)
 	{
-		Wait(2);
+		Wait(3);
 		// shoot
 		piston->Set(true);
 		Wait(0.5);
