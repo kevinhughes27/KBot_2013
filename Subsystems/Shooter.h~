@@ -23,7 +23,7 @@ public:
 	void pushFrisbee(bool);
 	void spinUpShooter(float);
 	void autonomousShoot();
-	void autonomousShootN(int);
+	void autonomousShoot3(int);
 };
 
 #endif

@@ -22,7 +22,7 @@ void BackCenter3_wDrive::Execute()
 	CommandBase::drive->wesleyDrive(AUTONOMOUS_DRIVE, AUTONOMOUS_DRIVE);
 	Wait(2);
 	CommandBase::drive->stop();
-	CommandBase::aimer->autonomousAim(POT_VALUE);
+	CommandBase::aimer->autonomousAim(0.88);
 	CommandBase::shooter->autonomousShootN(3);
 	Wait(0.5);
 }

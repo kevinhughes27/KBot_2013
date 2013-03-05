@@ -33,7 +33,7 @@ void Shooter::autonomousShoot()
 	piston->Set(false);
 }
 
-void Shooter::autonomousShootN(int N)
+void Shooter::autonomousShoot3(int loops)
 {
 	spinUpShooter(1.0);
 	Wait(2.5);
@@ -42,7 +42,7 @@ void Shooter::autonomousShootN(int N)
 	Wait(0.5);
 	piston->Set(false);
 
-	for(int i = 0; i < N; i++)
+	for(int i = 0; i < loops; i++)
 	{
 		Wait(3);
 		// shoot
