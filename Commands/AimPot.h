@@ -1,18 +1,22 @@
-#ifndef PUSHFRISBEE_H
-#define PUSHFRISBEE_H
+#ifndef AIMPOT_H
+#define AIMPOT_H
 
 #include "../CommandBase.h"
 
-class PushFrisbee: public Command 
+#include "math.h"
+
+class AimPot: public CommandBase 
 {
 public:
-	PushFrisbee();
-	PushFrisbee(float time);
+	AimPot(float _setPoint);
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
+	
+private:
+	float setPoint;
 };
 
 #endif

@@ -5,6 +5,12 @@ PushFrisbee::PushFrisbee()
 	Requires(CommandBase::shooter);
 }
 
+PushFrisbee::PushFrisbee(float time) 
+{
+	Requires(CommandBase::shooter);
+	SetTimeout(time);
+}
+
 // Called just before this Command runs the first time
 void PushFrisbee::Initialize() 
 {
@@ -19,7 +25,7 @@ void PushFrisbee::Execute()
 
 // Make this return true when this Command no longer needs to run execute()
 bool PushFrisbee::IsFinished() {
-	return false;
+	return false || IsTimedOut();
 }
 
 // Called once after isFinished returns true

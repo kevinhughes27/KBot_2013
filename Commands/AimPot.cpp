@@ -1,43 +1,39 @@
-#include "AimUp.h"
+#include "AimPot.h"
 
-AimUp::AimUp() {
+AimPot::AimPot(float _setPoint) 
+{
 	Requires(CommandBase::aimer);
+	setPoint = _setPoint;
 }
 
 // Called just before this Command runs the first time
-void AimUp::Initialize() 
+void AimPot::Initialize() 
 {
-	CommandBase::aimer->aim(0.0);
+	CommandBase::aimer->aim(0);
 }
 
 // Called repeatedly when this Command is scheduled to run
-void AimUp::Execute() 
+void AimPot::Execute() 
 {
-	if(!CommandBase::aimer->atTop())
-	{
-		CommandBase::aimer->aim(1);
-	}
-	else
-	{
-		CommandBase::aimer->aim(0);
-	}
+	CommandBase::aimer->aimDown();
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool AimUp::IsFinished() 
+bool AimPot::IsFinished() 
 {
-	return false;
+	return (CommandBase::aimer->getPot() <= setPoint) 
+		 || CommandBase::aimer->atBottom();
 }
 
 // Called once after isFinished returns true
-void AimUp::End() 
+void AimPot::End() 
 {
 	CommandBase::aimer->aim(0.0);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void AimUp::Interrupted() 
+void AimPot::Interrupted() 
 {
 	CommandBase::aimer->aim(0.0);
 }

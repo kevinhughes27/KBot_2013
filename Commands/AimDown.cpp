@@ -5,6 +5,12 @@ AimDown::AimDown()
 	Requires(CommandBase::aimer);
 }
 
+AimDown::AimDown(float time) 
+{
+	Requires(CommandBase::aimer);
+	SetTimeout(time);
+}
+
 // Called just before this Command runs the first time
 void AimDown::Initialize() 
 {
@@ -14,13 +20,20 @@ void AimDown::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void AimDown::Execute() 
 {
-	CommandBase::aimer->aim(-1);
+	if(!CommandBase::aimer->atBottom())
+	{
+		CommandBase::aimer->aim(-1);
+	}
+	else
+	{
+		CommandBase::aimer->aim(0);
+	}
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool AimDown::IsFinished() 
 {
-	return false;
+	return false || IsTimedOut();
 }
 
 // Called once after isFinished returns true

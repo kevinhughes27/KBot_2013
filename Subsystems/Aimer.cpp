@@ -1,58 +1,18 @@
 #include "Aimer.h"
 #include "../Robotmap.h"
-#include "../Commands/Aiming.h"
+#include "../Commands/AimJoystick.h"
 
-Aimer::Aimer() : PIDSubsystem("Aimer", Kp, Ki, Kd) 
+Aimer::Aimer() : Subsystem("Aimer") 
 {
 	motor = RobotMap::aimingMotor;
 	pot = RobotMap::aimPot;
 	topLimit = RobotMap::topLimit;
 	bottomLimit = RobotMap::bottomLimit;
-	
-	//SetSetpoint(P0T_TOP);
-	// limit output ...PID_STEP
-	//Enable();
-}
-
-double Aimer::ReturnPIDInput() 
-{
-	return pot->GetVoltage();
-}
-
-void Aimer::UsePIDOutput(double output) 
-{
-	motor->Set(output);
 }
 
 void Aimer::InitDefaultCommand() 
 {
-	SetDefaultCommand(new Aiming());
-}
-
-void Aimer::aimPID(float aimDirection)
-{
-	if(aimDirection > OPERATOR_DEADBAND)
-	{
-		SetSetpointRelative(-PID_STEP);
-	}
-	else if(aimDirection < OPERATOR_DEADBAND)
-	{
-		SetSetpointRelative(PID_STEP);
-	}
-	else
-	{
-		SetSetpointRelative(0.0);
-	}
-}
-
-void Aimer::aimUpPID()
-{
-	SetSetpointRelative(PID_STEP);
-}
-
-void Aimer::aimDownPID()
-{
-	SetSetpointRelative(-PID_STEP);
+	SetDefaultCommand(new AimJoystick());
 }
 
 void Aimer::aim(float joystickInput)
@@ -94,12 +54,17 @@ void Aimer::aim(float joystickInput)
 
 void Aimer::aimUp()
 {
-	motor->Set(AUTON_SPEED);
+	motor->Set(-AIM_SPEED-0.1);
 }
 
 void Aimer::aimDown()
 {
-	motor->Set(-AUTON_SPEED);
+	motor->Set(AIM_SPEED-0.1);
+}
+
+float Aimer::getPot() 
+{
+	return pot->GetVoltage();
 }
 
 bool Aimer::atBottom()
@@ -110,38 +75,4 @@ bool Aimer::atBottom()
 bool Aimer::atTop()
 {
 	return (topLimit->Get() == LIMIT_SWITCH_ON);
-}
-
-void Aimer::moveFromLimit()
-{
-	if(atBottom())
-	{
-		aimUp();
-	}
-	else if(atTop())
-	{
-		aimDown();
-	}
-}
-
-void Aimer::autonomousAim(float setpoint)
-{
-	float potVal = pot->GetVoltage();
-	
-	//changed from <= and added if/else for limit switch
-	while(potVal >= setpoint)
-	{
-		potVal = pot->GetVoltage();
-		printf("potVal: %f\n", potVal);
-		if(atBottom())
-		{
-			motor->Set(0.0);
-		}
-		else
-		{
-			motor->Set(AUTON_SPEED);
-		}
-	}
-	
-	motor->Set(0);
 }

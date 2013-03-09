@@ -1,18 +1,16 @@
 #ifndef BACKCENTER3_OPENLOOP_H
 #define BACKCENTER3_OPENLOOP_H
 
-#include "../../CommandBase.h"
-#define AIM_TIME 0.625
+#include "../AimDown.h"
+#include "../SpinUpShooter.h"
+#include "../PushFrisbee.h"
 
-class BackCenter3_openLoop: public CommandBase 
+#define AIM_TIME 0.5
+
+class BackCenter3_openLoop: public CommandGroup
 {
 public:
 	BackCenter3_openLoop();
-	virtual void Initialize();
-	virtual void Execute();
-	virtual bool IsFinished();
-	virtual void End();
-	virtual void Interrupted();
 };
 
 #endif
