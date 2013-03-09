@@ -1,28 +1,27 @@
-#include "BackCenter3_wDrive.h"
+#include "BackCenter3_openLoop.h"
 
-BackCenter3_wDrive::BackCenter3_wDrive() 
+BackCenter3_openLoop::BackCenter3_openLoop() 
 {
-	Requires(CommandBase::drive);
 	Requires(CommandBase::shooter);
 	Requires(CommandBase::aimer);
-	SetTimeout(15);
+	SetTimeout(14);
 }
 
 // Called just before this Command runs the first time
-void BackCenter3_wDrive::Initialize() 
+void BackCenter3_openLoop::Initialize() 
 {
-	CommandBase::drive->stop();
 	CommandBase::aimer->aim(0.0);
 	CommandBase::shooter->spinUpShooter(0.0);
 }
 
 // Called repeatedly when this Command is scheduled to run
-void BackCenter3_wDrive::Execute() 
+void BackCenter3_openLoop::Execute() 
 {
-	CommandBase::drive->wesleyDrive(AUTONOMOUS_DRIVE, AUTONOMOUS_DRIVE);
-	Wait(2);
-	CommandBase::drive->stop();
-	CommandBase::aimer->autonomousAim(0.88);
+	CommandBase::aimer->aimUp();
+	Wait(AIM_TIME);
+	CommandBase::aimer->aim(0); //stop
+	CommandBase::shooter->spinUpShooter(1.0);
+	Wait(0.5);
 	
 	// shoot
 	for(int i = 0; i <= 3; i++)
@@ -35,22 +34,22 @@ void BackCenter3_wDrive::Execute()
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool BackCenter3_wDrive::IsFinished() 
+bool BackCenter3_openLoop::IsFinished() 
 {
 	return true || IsTimedOut();
 }
 
 // Called once after isFinished returns true
-void BackCenter3_wDrive::End() 
+void BackCenter3_openLoop::End() 
 {
-	CommandBase::drive->stop();
 	CommandBase::aimer->aim(0.0);
 	CommandBase::shooter->spinUpShooter(0.0);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void BackCenter3_wDrive::Interrupted() 
+void BackCenter3_openLoop::Interrupted() 
 {
-	End();
+	CommandBase::aimer->aim(0.0);
+	CommandBase::shooter->spinUpShooter(0.0);
 }

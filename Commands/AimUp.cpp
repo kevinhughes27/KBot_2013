@@ -13,7 +13,7 @@ void AimUp::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void AimUp::Execute() 
 {
-	CommandBase::aimer->aim(1);
+	CommandBase::aimer->aim(0.1);
 }
 
 // Make this return true when this Command no longer needs to run execute()

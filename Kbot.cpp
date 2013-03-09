@@ -6,14 +6,18 @@
 
 #include "Commands/Autonomous/BackCenter3.h"
 #include "Commands/Autonomous/BackCenter3_wDrive.h"
+#include "Commands/Autonomous/BackCenter3_openLoop.h"
 
 class Kbot : public IterativeRobot 
 {
 
-private:
+public:
+	
 	LiveWindow *lw;
 	
 	Command *autonomousCommand;
+	
+	DriverStationLCD *lcd;
 	
 	virtual void RobotInit() 
 	{
@@ -21,8 +25,9 @@ private:
 		CommandBase::init();
 		lw = LiveWindow::GetInstance();
 		
-		autonomousCommand = new BackCenter3();
+		//autonomousCommand = new BackCenter3();
 		//autonomousCommand = new BackCenter3_wDrive();
+		autonomousCommand = new BackCenter3_openLoop();
 	}
 	
 	virtual void AutonomousInit() 
@@ -45,11 +50,6 @@ private:
 		Scheduler::GetInstance()->Run();
 	}
 	
-	virtual void DisabledPeriodic()
-	{
-		
-	}
-	
 	virtual void TestPeriodic() 
 	{
 		lw->Run();
@@ -57,10 +57,3 @@ private:
 };
 
 START_ROBOT_CLASS(Kbot);
-
-/*
- * In DriveCmd.cpp, changed Execute function to "CommandBase::drive->
- * 	regularDrive(float, float);... It used to be wesleyDrive(float float).
- * 	
- * Also, added regularDrive to Drive subsystem.
- */

@@ -1,13 +1,13 @@
-#ifndef BACKCENTER3_H
-#define BACKCENTER3_H
+#ifndef BACKCENTER3_OPENLOOP_H
+#define BACKCENTER3_OPENLOOP_H
 
 #include "../../CommandBase.h"
-#define POT_VALUE 0.646
+#define AIM_TIME 0.625
 
-class BackCenter3: public CommandBase 
+class BackCenter3_openLoop: public CommandBase 
 {
 public:
-	BackCenter3();
+	BackCenter3_openLoop();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

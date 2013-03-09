@@ -62,7 +62,15 @@ void Aimer::aim(float joystickInput)
 
 	if(fabs(joystickInput) > OPERATOR_DEADBAND && !(atBottom() || atTop()))
 	{
-		motor->Set(joystickInput * AIM_SPEED);
+		// if going up
+		if(joystickInput < 0)
+		{
+			motor->Set(joystickInput * (AIM_SPEED+0.1));
+		}
+		else // going down
+		{
+			motor->Set(joystickInput * AIM_SPEED);
+		}
 	}
 	else if(atBottom())
 	{
@@ -86,12 +94,12 @@ void Aimer::aim(float joystickInput)
 
 void Aimer::aimUp()
 {
-	motor->Set(AIM_SPEED);
+	motor->Set(AUTON_SPEED);
 }
 
 void Aimer::aimDown()
 {
-	motor->Set(-AIM_SPEED);
+	motor->Set(-AUTON_SPEED);
 }
 
 bool Aimer::atBottom()
@@ -118,13 +126,21 @@ void Aimer::moveFromLimit()
 
 void Aimer::autonomousAim(float setpoint)
 {
-	float potVal = 0.0;
+	float potVal = pot->GetVoltage();
 	
-	while(potVal <= setpoint)
+	//changed from <= and added if/else for limit switch
+	while(potVal >= setpoint)
 	{
 		potVal = pot->GetVoltage();
 		printf("potVal: %f\n", potVal);
-		motor->Set(AUTON_SPEED);
+		if(atBottom())
+		{
+			motor->Set(0.0);
+		}
+		else
+		{
+			motor->Set(AUTON_SPEED);
+		}
 	}
 	
 	motor->Set(0);
