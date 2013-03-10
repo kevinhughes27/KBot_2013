@@ -1,18 +1,16 @@
 #ifndef BACKCENTER3_H
 #define BACKCENTER3_H
 
-#include "../../CommandBase.h"
-#define POT_VALUE 0.78
+#include "../AimPot.h"
+#include "../AimDown.h"
+#include "../SpinUpShooter.h"
+#include "../PushFrisbee.h"
+#define POT_VAL 3.760
 
-class BackCenter3: public CommandBase 
+class BackCenter3: public CommandGroup
 {
 public:
 	BackCenter3();
-	virtual void Initialize();
-	virtual void Execute();
-	virtual bool IsFinished();
-	virtual void End();
-	virtual void Interrupted();
 };
 
 #endif

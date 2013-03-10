@@ -7,6 +7,7 @@ class AimDown: public CommandBase
 {
 public:
 	AimDown();
+	AimDown(float time);
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

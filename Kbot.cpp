@@ -5,15 +5,19 @@
 #include "CommandBase.h"
 
 #include "Commands/Autonomous/BackCenter3.h"
-#include "Commands/Autonomous/BackCenter3_wDrive.h"
+//#include "Commands/Autonomous/BackCenter3_wDrive.h"
+#include "Commands/Autonomous/BackCenter3_openLoop.h"
 
 class Kbot : public IterativeRobot 
 {
 
-private:
+public:
+	
 	LiveWindow *lw;
 	
 	Command *autonomousCommand;
+	
+	DriverStationLCD *lcd;
 	
 	virtual void RobotInit() 
 	{
@@ -23,6 +27,7 @@ private:
 		
 		autonomousCommand = new BackCenter3();
 		//autonomousCommand = new BackCenter3_wDrive();
+		//autonomousCommand = new BackCenter3_openLoop();
 	}
 	
 	virtual void AutonomousInit() 
@@ -43,11 +48,6 @@ private:
 	virtual void TeleopPeriodic() 
 	{
 		Scheduler::GetInstance()->Run();
-	}
-	
-	virtual void DisabledPeriodic()
-	{
-		
 	}
 	
 	virtual void TestPeriodic() 

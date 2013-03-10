@@ -48,7 +48,7 @@ void RobotMap::init()
 	robotDrive->SetExpiration(0.01);
 	robotDrive->SetSafetyEnabled(false);
 
-	//Initializing Potentiometer
+	//Initializing analog channels
 	aimPot = new AnalogChannel(POTENTIOMETER);
 	
 	//Initializing Limit Switches

@@ -71,5 +71,6 @@ void Drive::regularDrive(float leftStick, float rightStick)
 	{
 		rightStick = 0.0;
 	}
+	//printf("Is working: values are %f and %f\n", leftStick, rightStick);
 	robotDrive->TankDrive(-leftStick, -rightStick, true);
 }

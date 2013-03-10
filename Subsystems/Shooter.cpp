@@ -26,7 +26,7 @@ void Shooter::spinUpShooter(float motorSpeed)
 void Shooter::autonomousShoot()
 {
 	spinUpShooter(1.0);
-	Wait(3.0);
+	Wait(2.5);
 	// shoot
 	piston->Set(true);
 	Wait(0.5);

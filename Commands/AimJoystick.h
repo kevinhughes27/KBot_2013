@@ -1,14 +1,14 @@
-#ifndef AIMING_H
-#define AIMING_H
+#ifndef AIMJOYSTICK_H
+#define AIMJOYSTICK_H
 
 #include "../CommandBase.h"
 
 #include "math.h"
 
-class Aiming: public CommandBase 
+class AimJoystick: public CommandBase 
 {
 public:
-	Aiming();
+	AimJoystick();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

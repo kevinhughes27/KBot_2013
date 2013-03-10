@@ -13,7 +13,7 @@ OI::OI()
 	//Creating Joysticks
 	m_driver = new LogitechF310(DRIVER_PORT);
 	m_xbox = new XboxController(OPERATOR_PORT);
-	m_guitar = new GuitarController(GUITAR_PORT);
+	//m_guitar = new GuitarController(GUITAR_PORT);
 
 	//Attaching the runVision boolean to the smart dashboard key
 	runVision = false;
@@ -58,21 +58,21 @@ OI::OI()
 		  * ShooterDown moves the shooter down
 		  * GuitarVision toggles the vision system
 		  */
-	guitarPush = new JoystickButton(m_guitar->m_joy, GUITAR_GREEN);
-	guitarPush->WhileHeld(new PushFrisbee());
+	//guitarPush = new JoystickButton(m_guitar->m_joy, GUITAR_GREEN);
+	//guitarPush->WhileHeld(new PushFrisbee());
 	
-	guitarShoot = new JoystickButton(m_guitar->m_joy, GUITAR_START);
-	guitarShoot->WhileHeld(new SpinUpShooter());
+	//guitarShoot = new JoystickButton(m_guitar->m_joy, GUITAR_START);
+	//guitarShoot->WhileHeld(new SpinUpShooter());
 	
-	guitarChicken = new JoystickButton(m_guitar->m_joy, GUITAR_BACK);
-	guitarChicken->WhileHeld(new ChickenRelease());
+	//guitarChicken = new JoystickButton(m_guitar->m_joy, GUITAR_BACK);
+	//guitarChicken->WhileHeld(new ChickenRelease());
 	
-	shooterUp = new JoystickButton(m_guitar->m_joy, GUITAR_YELLOW);
-	shooterUp->WhileHeld(new AimUp());
+	//shooterUp = new JoystickButton(m_guitar->m_joy, GUITAR_YELLOW);
+	//shooterUp->WhileHeld(new AimUp());
 	
-	shooterDown = new JoystickButton(m_guitar->m_joy, GUITAR_RED);
-	shooterDown->WhileHeld(new AimDown());
+	//shooterDown = new JoystickButton(m_guitar->m_joy, GUITAR_RED);
+	//shooterDown->WhileHeld(new AimDown());
 	
-	guitarVision = new JoystickButton(m_guitar->m_joy, GUITAR_BLUE);
-	guitarVision->WhenPressed(new ToggleVision());
+	//guitarVision = new JoystickButton(m_guitar->m_joy, GUITAR_BLUE);
+	//guitarVision->WhenPressed(new ToggleVision());
 }
