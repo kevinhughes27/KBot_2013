@@ -3,7 +3,7 @@
 
 #include "../CommandBase.h"
 
-class SpinUpShooter: public Command 
+class SpinUpShooter: public Command
 {
 public:
 	SpinUpShooter();

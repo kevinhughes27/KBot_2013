@@ -8,14 +8,14 @@
 
 #define DRIVER_DEADBAND 0.10
 
-class Drive: public Subsystem 
+class Drive: public Subsystem
 {
 private:
 	SpeedController* leftMotor;
 	SpeedController* rightMotor;
 	RobotDrive* robotDrive;
 	bool speedSet;
-	
+
 public:
 	Drive();
 	void InitDefaultCommand();

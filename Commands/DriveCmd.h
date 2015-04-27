@@ -3,7 +3,7 @@
 
 #include "../CommandBase.h"
 
-class DriveCmd: public CommandBase 
+class DriveCmd: public CommandBase
 {
 public:
 	DriveCmd();

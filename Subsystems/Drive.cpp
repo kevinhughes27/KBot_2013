@@ -2,15 +2,15 @@
 #include "../Robotmap.h"
 #include "../Commands/DriveCmd.h"
 
-Drive::Drive() : Subsystem("Drive") 
+Drive::Drive() : Subsystem("Drive")
 {
 	leftMotor = RobotMap::leftMotor;
 	rightMotor = RobotMap::rightMotor;
 	robotDrive = RobotMap::robotDrive;
 	speedSet = false;
 }
-    
-void Drive::InitDefaultCommand() 
+
+void Drive::InitDefaultCommand()
 {
 	SetDefaultCommand(new DriveCmd());
 }
@@ -30,18 +30,18 @@ void Drive::wesleyDrive(float leftStick, float rightStick)
 	{
 		speedSet = false;
 	}
-	
+
 	//Deadband to stop drifting controller
 	if(fabs(leftStick) < DRIVER_DEADBAND)
 	{
 		leftStick = 0;
 	}
-	
+
 	else if(fabs(rightStick) < DRIVER_DEADBAND)
 	{
 		rightStick = 0;
 	}
-	
+
 	if(speedSet)
 	{
 		leftStick = 0.5 * leftStick;
@@ -52,7 +52,7 @@ void Drive::wesleyDrive(float leftStick, float rightStick)
 		leftStick = leftStick;
 		rightStick = rightStick;
 	}
-	
+
 	robotDrive->TankDrive(-leftStick, -rightStick, true);
 }
 

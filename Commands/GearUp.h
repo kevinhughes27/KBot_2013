@@ -3,7 +3,7 @@
 
 #include "../CommandBase.h"
 
-class GearUp: public Command 
+class GearUp: public Command
 {
 public:
 	GearUp();

@@ -10,7 +10,7 @@
 #define BACK_CONSTANT 1.0
 #define FRONT_CONSTANT 1.0
 
-class Shooter: public Subsystem 
+class Shooter: public Subsystem
 {
 private:
 	SpeedController* shooterFront;

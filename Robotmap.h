@@ -34,7 +34,7 @@ public:
 	static SpeedController* rightMotor;
 	static RobotDrive* robotDrive;
 	static Solenoid* gearPiston;
-	
+
 	//Defining Operator objects
 	static SpeedController* shooterFront;
 	static SpeedController* shooterBack;
@@ -42,13 +42,13 @@ public:
 	static AnalogChannel* aimPot;
 	static Solenoid* shooterPiston;
 	static Solenoid* chickenLittle;
-	
+
 	//Defining Other objects
 	static Compressor* compressor;
 	static DigitalInput* topLimit;
 	static DigitalInput* bottomLimit;
 	static Solenoid* ringLED;
-	
+
 	static void init();
 };
 

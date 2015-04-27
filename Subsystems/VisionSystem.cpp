@@ -3,14 +3,14 @@
 #include "../Robotmap.h"
 #include "../CommandBase.h"
 
-VisionSystem::VisionSystem() : Subsystem("VisionSystem") 
+VisionSystem::VisionSystem() : Subsystem("VisionSystem")
 {
 	toggleCamera = CommandBase::oi->runVision;
 	ringLED = RobotMap::ringLED;
-	
+
 	toggleRingLED = RobotMap::ringLED->Get();
 }
-    
+
 void VisionSystem::InitDefaultCommand() {}
 
 void VisionSystem::onOff()

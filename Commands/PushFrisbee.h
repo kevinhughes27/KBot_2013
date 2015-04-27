@@ -3,7 +3,7 @@
 
 #include "../CommandBase.h"
 
-class PushFrisbee: public Command 
+class PushFrisbee: public Command
 {
 public:
 	PushFrisbee();

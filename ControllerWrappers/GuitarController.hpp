@@ -13,9 +13,9 @@
 class GuitarController
 {
 public:
-	
+
 	Joystick* m_joy;
-	
+
 	GuitarController(int number)
 	{
 		m_joy = new Joystick(number);
@@ -55,8 +55,8 @@ public:
 	{
 		return m_joy->GetRawButton(7);
 	}
-	
-   	 bool getStart()
+
+	bool getStart()
 	{
 		return m_joy->GetRawButton(8);
 	}
@@ -76,7 +76,7 @@ public:
 		return m_joy->GetRawAxis(3);
 	}
 
-    float getDPADX()
+	float getDPADX()
 	{
 		return m_joy->GetRawAxis(6);
 	}

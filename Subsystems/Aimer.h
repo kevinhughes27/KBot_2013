@@ -12,7 +12,7 @@
 #define AIM_SPEED 0.20
 
 
-class Aimer: public Subsystem 
+class Aimer: public Subsystem
 {
 private:
 	AnalogChannel* pot;
@@ -22,15 +22,15 @@ private:
 public:
 	Aimer();
 	void InitDefaultCommand();
-	
+
 	void aim(float);
 	void aimUp();
 	void aimDown();
-	
+
 	float getPot();
 	bool atBottom();
 	bool atTop();
-	
+
 	void autonomousAim(float);
 };
 

@@ -1,24 +1,24 @@
 #include "PushFrisbee.h"
 
-PushFrisbee::PushFrisbee() 
+PushFrisbee::PushFrisbee()
 {
 	Requires(CommandBase::shooter);
 }
 
-PushFrisbee::PushFrisbee(float time) 
+PushFrisbee::PushFrisbee(float time)
 {
 	Requires(CommandBase::shooter);
 	SetTimeout(time);
 }
 
 // Called just before this Command runs the first time
-void PushFrisbee::Initialize() 
+void PushFrisbee::Initialize()
 {
 	CommandBase::shooter->pushFrisbee(true);
 }
 
 // Called repeatedly when this Command is scheduled to run
-void PushFrisbee::Execute() 
+void PushFrisbee::Execute()
 {
 	// pass
 }
@@ -29,14 +29,14 @@ bool PushFrisbee::IsFinished() {
 }
 
 // Called once after isFinished returns true
-void PushFrisbee::End() 
+void PushFrisbee::End()
 {
 	CommandBase::shooter->pushFrisbee(false);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void PushFrisbee::Interrupted() 
+void PushFrisbee::Interrupted()
 {
 	CommandBase::shooter->pushFrisbee(false);
 }

@@ -3,7 +3,7 @@
 
 #include "../CommandBase.h"
 
-class AimUp: public CommandBase 
+class AimUp: public CommandBase
 {
 public:
 	AimUp();

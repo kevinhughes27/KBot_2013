@@ -4,7 +4,7 @@
 #include "WPILib.h"
 #include "Commands/Subsystem.h"
 
-class Pistons: public Subsystem 
+class Pistons: public Subsystem
 {
 private:
 	Solenoid* gearPiston;

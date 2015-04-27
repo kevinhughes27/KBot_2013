@@ -2,7 +2,7 @@
 #include "../Robotmap.h"
 #include "../Commands/AimJoystick.h"
 
-Aimer::Aimer() : Subsystem("Aimer") 
+Aimer::Aimer() : Subsystem("Aimer")
 {
 	motor = RobotMap::aimingMotor;
 	pot = RobotMap::aimPot;
@@ -10,7 +10,7 @@ Aimer::Aimer() : Subsystem("Aimer")
 	bottomLimit = RobotMap::bottomLimit;
 }
 
-void Aimer::InitDefaultCommand() 
+void Aimer::InitDefaultCommand()
 {
 	SetDefaultCommand(new AimJoystick());
 }
@@ -62,7 +62,7 @@ void Aimer::aimDown()
 	motor->Set(AIM_SPEED-0.1);
 }
 
-float Aimer::getPot() 
+float Aimer::getPot()
 {
 	return pot->GetVoltage();
 }

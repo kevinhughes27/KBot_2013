@@ -1,37 +1,37 @@
 #include "GearUp.h"
 
-GearUp::GearUp() 
+GearUp::GearUp()
 {
 	Requires(CommandBase::pistons);
 }
 
 // Called just before this Command runs the first time
-void GearUp::Initialize() 
+void GearUp::Initialize()
 {
 	//pass
 }
 
 // Called repeatedly when this Command is scheduled to run
-void GearUp::Execute() 
+void GearUp::Execute()
 {
-	CommandBase::pistons->gearChange(true);	
+	CommandBase::pistons->gearChange(true);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool GearUp::IsFinished() 
+bool GearUp::IsFinished()
 {
 	return false;
 }
 
 // Called once after isFinished returns true
-void GearUp::End() 
+void GearUp::End()
 {
 	//pass
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void GearUp::Interrupted() 
+void GearUp::Interrupted()
 {
 	//pass
 }

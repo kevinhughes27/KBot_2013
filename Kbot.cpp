@@ -8,49 +8,49 @@
 //#include "Commands/Autonomous/BackCenter3_wDrive.h"
 #include "Commands/Autonomous/BackCenter3_openLoop.h"
 
-class Kbot : public IterativeRobot 
+class Kbot : public IterativeRobot
 {
 
 public:
-	
+
 	LiveWindow *lw;
-	
+
 	Command *autonomousCommand;
-	
+
 	DriverStationLCD *lcd;
-	
-	virtual void RobotInit() 
+
+	virtual void RobotInit()
 	{
 		RobotMap::init();
 		CommandBase::init();
 		lw = LiveWindow::GetInstance();
-		
+
 		autonomousCommand = new BackCenter3();
 		//autonomousCommand = new BackCenter3_wDrive();
 		//autonomousCommand = new BackCenter3_openLoop();
 	}
-	
-	virtual void AutonomousInit() 
+
+	virtual void AutonomousInit()
 	{
 		autonomousCommand->Start();
 	}
-	
-	virtual void AutonomousPeriodic() 
+
+	virtual void AutonomousPeriodic()
 	{
 		Scheduler::GetInstance()->Run();
 	}
-	
-	virtual void TeleopInit() 
+
+	virtual void TeleopInit()
 	{
 		autonomousCommand->Cancel();
 	}
-	
-	virtual void TeleopPeriodic() 
+
+	virtual void TeleopPeriodic()
 	{
 		Scheduler::GetInstance()->Run();
 	}
-	
-	virtual void TestPeriodic() 
+
+	virtual void TestPeriodic()
 	{
 		lw->Run();
 	}

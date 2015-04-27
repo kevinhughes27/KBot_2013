@@ -1,10 +1,10 @@
 #include "CommandBase.h"
 #include "Commands/Scheduler.h"
 
-CommandBase::CommandBase(const char *name) : Command(name) 
+CommandBase::CommandBase(const char *name) : Command(name)
 {}
 
-CommandBase::CommandBase() : Command() 
+CommandBase::CommandBase() : Command()
 {}
 
 Drive* CommandBase::drive = NULL;
@@ -14,7 +14,7 @@ Aimer* CommandBase::aimer = NULL;
 VisionSystem* CommandBase::vision = NULL;
 OI* CommandBase::oi = NULL;
 
-void CommandBase::init() 
+void CommandBase::init()
 {
 	drive = new Drive();
 	pistons = new Pistons();

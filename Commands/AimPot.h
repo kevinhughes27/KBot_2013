@@ -5,7 +5,7 @@
 
 #include "math.h"
 
-class AimPot: public CommandBase 
+class AimPot: public CommandBase
 {
 public:
 	AimPot(float _setPoint);
@@ -14,7 +14,7 @@ public:
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
-	
+
 private:
 	float setPoint;
 };

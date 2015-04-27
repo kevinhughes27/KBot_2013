@@ -3,7 +3,7 @@
 
 #include "../CommandBase.h"
 
-class ToggleVision: public CommandBase 
+class ToggleVision: public CommandBase
 {
 public:
 	ToggleVision();

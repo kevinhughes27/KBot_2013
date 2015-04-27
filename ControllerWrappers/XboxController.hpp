@@ -16,9 +16,9 @@
 class XboxController
 {
 public:
-	
+
 	Joystick* m_joy;
-	
+
 	XboxController(int number)
 	{
 		m_joy = new Joystick(number);
@@ -59,12 +59,12 @@ public:
 		return m_joy->GetRawButton(5);
 	}
 
-   	 bool getStart()
+	bool getStart()
 	{
 		return m_joy->GetRawButton(8);
 	}
 
-    	bool getSelect()
+	bool getSelect()
 	{
 		return m_joy->GetRawButton(7);
 	}
@@ -89,12 +89,12 @@ public:
 		return m_joy->GetRawAxis(2);
 	}
 
-   	float getTrigger()
+	float getTrigger()
 	{
 		return m_joy->GetRawAxis(3);
 	}
 
-    	float getDPADX()
+	float getDPADX()
 	{
 		return m_joy->GetRawAxis(6);
 	}

@@ -19,14 +19,14 @@
 class LogitechController
 {
 public:
-	
+
 	Joystick* m_joy;
-	
+
 	LogitechController(int number)
 	{
 		m_joy = new Joystick(number);
 	}
-	
+
 	~LogitechController()
 	{
 		delete m_joy;

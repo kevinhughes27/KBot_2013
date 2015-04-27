@@ -5,7 +5,7 @@
 
 #include "math.h"
 
-class AimJoystick: public CommandBase 
+class AimJoystick: public CommandBase
 {
 public:
 	AimJoystick();

@@ -3,7 +3,7 @@
 
 #include "../CommandBase.h"
 
-class ChickenRelease: public Command 
+class ChickenRelease: public Command
 {
 public:
 	ChickenRelease();

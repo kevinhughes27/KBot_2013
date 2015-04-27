@@ -5,13 +5,13 @@ AimUp::AimUp() {
 }
 
 // Called just before this Command runs the first time
-void AimUp::Initialize() 
+void AimUp::Initialize()
 {
 	CommandBase::aimer->aim(0.0);
 }
 
 // Called repeatedly when this Command is scheduled to run
-void AimUp::Execute() 
+void AimUp::Execute()
 {
 	if(!CommandBase::aimer->atTop())
 	{
@@ -24,20 +24,20 @@ void AimUp::Execute()
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool AimUp::IsFinished() 
+bool AimUp::IsFinished()
 {
 	return false;
 }
 
 // Called once after isFinished returns true
-void AimUp::End() 
+void AimUp::End()
 {
 	CommandBase::aimer->aim(0.0);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void AimUp::Interrupted() 
+void AimUp::Interrupted()
 {
 	CommandBase::aimer->aim(0.0);
 }

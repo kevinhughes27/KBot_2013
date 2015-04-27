@@ -1,15 +1,15 @@
 #include "Shooter.h"
 #include "../Robotmap.h"
 
-Shooter::Shooter() : Subsystem("Shooter") 
+Shooter::Shooter() : Subsystem("Shooter")
 {
 	shooterFront = RobotMap::shooterFront;
 	shooterBack = RobotMap::shooterBack;
 	piston = RobotMap::shooterPiston;
 	pot = RobotMap::aimPot;
 }
-    
-void Shooter::InitDefaultCommand() 
+
+void Shooter::InitDefaultCommand()
 {}
 
 void Shooter::pushFrisbee(bool pistonSetting)

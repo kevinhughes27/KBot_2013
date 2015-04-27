@@ -17,9 +17,9 @@
 class Attack3Joystick
 {
 public:
-	
+
 	Joystick* m_joy;
-	
+
 	Attack3Joystick(int number)
 	{
 		m_joy = new Joystick(number);
@@ -60,27 +60,27 @@ public:
 		return m_joy->GetRawButton(6);
 	}
 
-    	bool getButton7()
+	bool getButton7()
 	{
 		return m_joy->GetRawButton(7);
 	}
 
-    	bool getButton8()
+	bool getButton8()
 	{
 		return m_joy->GetRawButton(8);
 	}
 
-    	bool getButton9()
+	bool getButton9()
 	{
 		return m_joy->GetRawButton(9);
 	}
 
-    	bool getButton10()
+	bool getButton10()
 	{
 		return m_joy->GetRawButton(10);
 	}
 
-    	bool getButton11()
+	bool getButton11()
 	{
 		return m_joy->GetRawButton(11);
 	}

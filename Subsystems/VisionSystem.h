@@ -4,7 +4,7 @@
 #include "WPILib.h"
 #include "Commands/Subsystem.h"
 
-class VisionSystem: public Subsystem 
+class VisionSystem: public Subsystem
 {
 private:
 	Solenoid* ringLED;

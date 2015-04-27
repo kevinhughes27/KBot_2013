@@ -1,18 +1,18 @@
 #include "SpinUpShooter.h"
 
-SpinUpShooter::SpinUpShooter() 
+SpinUpShooter::SpinUpShooter()
 {
 	//Requires(CommandBase::shooter);
 }
 
 // Called just before this Command runs the first time
-void SpinUpShooter::Initialize() 
+void SpinUpShooter::Initialize()
 {
 	CommandBase::shooter->spinUpShooter(0.0);
 }
 
 // Called repeatedly when this Command is scheduled to run
-void SpinUpShooter::Execute() 
+void SpinUpShooter::Execute()
 {
 	CommandBase::shooter->spinUpShooter(1.0);
 }
@@ -23,14 +23,14 @@ bool SpinUpShooter::IsFinished() {
 }
 
 // Called once after isFinished returns true
-void SpinUpShooter::End() 
+void SpinUpShooter::End()
 {
 	CommandBase::shooter->spinUpShooter(0.0);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void SpinUpShooter::Interrupted() 
+void SpinUpShooter::Interrupted()
 {
 	CommandBase::shooter->spinUpShooter(0.0);
 }

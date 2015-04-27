@@ -16,11 +16,11 @@ DigitalInput* RobotMap::bottomLimit = NULL;
 DigitalInput* RobotMap::topLimit = NULL;
 
 void RobotMap::init()
-{	
+{
 	//Starting compressor
 	compressor = new Compressor(COMPRESSOR_SWITCH_CHANNEL, COMPRESSOR_RELAY_CHANNEL);
 	compressor->Start();
-	
+
 	//Start pistons
 	gearPiston = new Solenoid(GEAR_PISTON);
 	gearPiston->Set(true);
@@ -28,20 +28,20 @@ void RobotMap::init()
 	chickenLittle->Set(false);
 	shooterPiston = new Solenoid(SHOOTER_PISTON);
 	shooterPiston->Set(false);
-	
+
 	//Starting Vision Lights
 	ringLED = new Solenoid(VISION_LIGHTS);
 	ringLED->Set(false);
-	
+
 	//Initializing motors
 	leftMotor = new Talon(LEFT_MOTOR);
 	rightMotor = new Talon(RIGHT_MOTOR);
-	
+
 	//Setting Shooter Motor
 	shooterFront = new Talon(SHOOTER_FRONT);
 	shooterBack = new Talon(SHOOTER_BACK);
 	aimingMotor = new Talon(AIMING_MOTOR);
-	
+
 	//Setting Defaults of RobotDrive
 	robotDrive = new RobotDrive(leftMotor, rightMotor);
 	robotDrive->SetMaxOutput(1.0);
@@ -50,7 +50,7 @@ void RobotMap::init()
 
 	//Initializing analog channels
 	aimPot = new AnalogChannel(POTENTIOMETER);
-	
+
 	//Initializing Limit Switches
 	topLimit = new DigitalInput(TOP_LIMIT);
 	bottomLimit = new DigitalInput(BOTTOM_LIMIT);
